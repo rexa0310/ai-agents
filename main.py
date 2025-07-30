@@ -25,7 +25,7 @@ prompt = ChatPromptTemplate.from_messages(
             "system",
             """
             You are a research assistant that will help generate a research paper.
-            Answer the user query and use neccessary tools. 
+            Answer the user query and use only neccessary tools. 
             Wrap the output in this format and provide no other text\n{format_instructions}
             """,
         ),
