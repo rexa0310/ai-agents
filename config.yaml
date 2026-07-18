@@ -1,0 +1,32 @@
+# Non-secret configuration. Secrets (OPENROUTER_API_KEY, MONGO_URI) live in .env.
+
+# --- LLM (local Hugging Face model for answer generation) ---
+local_model_id: google/flan-t5-base
+local_llm_max_new_tokens: 256
+local_llm_temperature: 0.2
+
+# --- RAG / chunking ---
+collection_name: default
+chunk_size: 500
+chunk_overlap: 50
+retrieval_top_k: 3
+
+# --- Embeddings (OpenRouter, hosted) ---
+embedding_backend: openrouter
+openrouter_embedding_model: openai/text-embedding-3-small
+# Must match the model output: text-embedding-3-small=1536, text-embedding-3-large=3072.
+# Changing the model/dimension requires a fresh collection_name + re-ingest.
+embedding_dimension: 1536
+
+# --- Vector DB ---
+vector_db_backend: qdrant        # qdrant | chroma | faiss
+qdrant_path: ./qdrant_data
+qdrant_url: ""                   # set to http://localhost:6333 for server mode
+chroma_path: ./chroma_data
+chroma_host: ""                  # set to localhost for server mode
+chroma_port: 8001
+faiss_path: ./faiss_data
+
+# --- Document registry (MongoDB) ---
+mongo_db: rag
+mongo_collection: ingested_documents
