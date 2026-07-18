@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets (config.yaml is non-secret and IS tracked)
+.env
+
+# IDE / agent tooling
+.idea/
+.vscode/
+.claude/
+
+# Local vector DB data (embedded mode) + docker volumes
+qdrant_data/
+qdrant_storage/
+chroma_data/
+chroma_storage/
+faiss_data/
+mongo_storage/
